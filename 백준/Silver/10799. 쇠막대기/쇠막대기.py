@@ -2,7 +2,7 @@
 import sys
 input = lambda :sys.stdin.readline().rstrip()
 
-lst = list(input())
+lst = input()
 
 q = list()
 cnt = 0
