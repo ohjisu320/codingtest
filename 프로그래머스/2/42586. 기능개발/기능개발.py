@@ -1,23 +1,22 @@
-
 def solution(progresses, speeds):
     import math
     answer = []
+    days = []
     
-    last_days = []
-    cnt = 1
     for i in range(len(progresses)):
-        last_days.append( math.ceil( (100 - progresses[i])/speeds[i]))
+        days.append(math.ceil((100 - progresses[i]) /speeds[i]))
     
-    comp = last_days[0]
-    for i in range(1, len(last_days)):
-        if comp >= last_days[i]:
-           cnt += 1
-        else: 
+    comp = days[0]
+    cnt = 1
+    
+    for i in range(1, len(days)):
+        if comp < days[i]:
             answer.append(cnt)
             cnt = 1
-            comp = last_days[i]
-        if i == len(last_days) -1:
-            answer.append(cnt)
+            comp = days[i]
+        else:
+            cnt += 1
+    
+    answer.append(cnt)
         
-
     return answer
