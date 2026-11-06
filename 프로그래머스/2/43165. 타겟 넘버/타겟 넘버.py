@@ -1,21 +1,23 @@
-
-
 def solution(numbers, target):
     
-    def dfs(i, total):
-        nonlocal answer    
-        
-        if i == len(numbers):
-            if total == target:
+
+    answer = 0
+    
+    def dfs(idx, num):
+        nonlocal answer
+    
+        if idx == len(numbers):
+            if num == target:
                 answer += 1
             return
 
-
-        dfs(i + 1, total + numbers[i])
-        dfs(i + 1, total - numbers[i])
-        return
-            
-    answer = 0
-    dfs(0, 0)
+        dfs(idx + 1, num + numbers[idx])
+        dfs(idx + 1, num - numbers[idx])
     
+    dfs(0, 0)
     return answer
+
+
+
+    
+    
